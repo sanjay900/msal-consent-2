@@ -379,7 +379,7 @@ export class UserAgentApplication {
           this._cacheStorage.setItem(authorityKey, this.authority);
         }
 
-        const urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "&prompt=consent" + "&response_mode=fragment";
+        const urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "" + "&response_mode=fragment";
         this.promptUser(urlNavigate);
       });
   }
@@ -439,7 +439,7 @@ export class UserAgentApplication {
           this._cacheStorage.setItem(authorityKey, this.authority);
         }
 
-        const urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "&prompt=consent" + "&response_mode=fragment";
+        const urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "" + "&response_mode=fragment";
         window.renewStates.push(authenticationRequest.state);
         window.requestType = Constants.login;
         this.registerCallback(authenticationRequest.state, scope, resolve, reject);
@@ -998,7 +998,7 @@ protected getCachedTokenInternal(scopes : Array<string> , user: User): CacheResu
         authenticationRequest.extraQueryParameters = extraQueryParameters;
       }
 
-      let urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "&prompt=consent" + "&response_mode=fragment";
+      let urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "" + "&response_mode=fragment";
       urlNavigate = this.addHintParameters(urlNavigate, userObject);
       if (urlNavigate) {
         this._cacheStorage.setItem(Constants.stateAcquireToken, authenticationRequest.state);
@@ -1082,7 +1082,7 @@ protected getCachedTokenInternal(scopes : Array<string> , user: User): CacheResu
           authenticationRequest.extraQueryParameters = extraQueryParameters;
         }
 
-        let urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "&prompt=consent" + "&response_mode=fragment";
+        let urlNavigate = authenticationRequest.createNavigateUrl(scopes) + "" + "&response_mode=fragment";
         urlNavigate = this.addHintParameters(urlNavigate, userObject);
         window.renewStates.push(authenticationRequest.state);
         window.requestType = Constants.renewToken;
